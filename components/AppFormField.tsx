@@ -154,7 +154,7 @@ const RenderField = ({ field, props }: { field: any; props: Props }) => {
 };
 
 // don't destructure props yet, as they need to be passed in tact to RenderInput
-const CustomFormField = (props: Props) => {
+const AppFormField = (props: Props) => {
   const { control, name, label } = props;
 
   return (
@@ -175,4 +175,4 @@ const CustomFormField = (props: Props) => {
   );
 };
 
-export default CustomFormField;
+export default AppFormField;

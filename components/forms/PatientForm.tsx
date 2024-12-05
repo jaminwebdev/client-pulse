@@ -11,7 +11,7 @@ import { createUser } from "@/lib/actions/patient.actions";
 import { UserFormValidation } from "@/lib/validation";
 
 import "react-phone-number-input/style.css";
-import CustomFormField, { FormFields } from "../AppFormField";
+import AppFormField, { FormFields } from "../AppFormField";
 import SubmitButton from "../SubmitButton";
 
 export const PatientForm = () => {
@@ -57,7 +57,7 @@ export const PatientForm = () => {
           <p className="text-dark-700">Register below to schedule an appointment.</p>
         </section>
 
-        <CustomFormField
+        <AppFormField
           fieldType={FormFields.INPUT}
           control={form.control}
           name="name"
@@ -67,7 +67,7 @@ export const PatientForm = () => {
           iconAlt="user"
         />
 
-        <CustomFormField
+        <AppFormField
           fieldType={FormFields.INPUT}
           control={form.control}
           name="email"
@@ -77,7 +77,7 @@ export const PatientForm = () => {
           iconAlt="email"
         />
 
-        <CustomFormField
+        <AppFormField
           fieldType={FormFields.PHONE_INPUT}
           control={form.control}
           name="phone"
