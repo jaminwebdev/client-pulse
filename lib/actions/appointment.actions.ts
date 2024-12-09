@@ -13,7 +13,6 @@ import {
 } from "../appwrite.config";
 import { formatDateTime, parseStringify } from "../utils";
 
-//  CREATE APPOINTMENT
 export const createAppointment = async (
   appointment: CreateAppointmentParams
 ) => {
@@ -32,7 +31,6 @@ export const createAppointment = async (
   }
 };
 
-//  GET RECENT APPOINTMENTS
 export const getRecentAppointmentList = async () => {
   try {
     const appointments = await databases.listDocuments(
@@ -49,16 +47,9 @@ export const getRecentAppointmentList = async () => {
 
     const counts = (appointments.documents as Appointment[]).reduce(
       (acc, appointment) => {
-        switch (appointment.status) {
-          case "scheduled":
-            acc.scheduledCount++;
-            break;
-          case "pending":
-            acc.pendingCount++;
-            break;
-          case "cancelled":
-            acc.cancelledCount++;
-            break;
+        const countKey = `${appointment.status}Count` as keyof typeof initialCounts;
+        if (countKey in acc) {
+          acc[countKey]++;
         }
         return acc;
       },
@@ -80,7 +71,6 @@ export const getRecentAppointmentList = async () => {
   }
 };
 
-//  SEND SMS NOTIFICATION
 export const sendSMSNotification = async (userId: string, content: string) => {
   try {
     // https://appwrite.io/docs/references/1.5.x/server-nodejs/messaging#createSms
@@ -96,7 +86,6 @@ export const sendSMSNotification = async (userId: string, content: string) => {
   }
 };
 
-//  UPDATE APPOINTMENT
 export const updateAppointment = async ({
   appointmentId,
   userId,
@@ -125,7 +114,6 @@ export const updateAppointment = async ({
   }
 };
 
-// GET APPOINTMENT
 export const getAppointment = async (appointmentId: string) => {
   try {
     const appointment = await databases.getDocument(
