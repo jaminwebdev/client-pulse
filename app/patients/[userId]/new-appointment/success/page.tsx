@@ -45,7 +45,7 @@ const RequestSuccess = async ({
           <p>We&apos;ll be in touch shortly.</p>
         </section>
 
-        <section className="request-details">
+        <section className="flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row">
           <p>Requested appointment details: </p>
           <div className="flex items-center gap-3">
             <Image
