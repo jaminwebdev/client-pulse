@@ -33,13 +33,13 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const encryptedKey =
     typeof window !== "undefined"
-      ? window.localStorage.getItem("accessKey")
+      ? window.localStorage.getItem("adminKey")
       : null;
 
   useEffect(() => {
-    const accessKey = encryptedKey && decryptKey(encryptedKey);
+    const adminKey = encryptedKey && decryptKey(encryptedKey);
 
-    if (accessKey !== process.env.NEXT_PUBLIC_ADMIN_PASSKEY!.toString()) {
+    if (adminKey !== process.env.NEXT_PUBLIC_ADMIN_PASSKEY!.toString()) {
       redirect("/");
     }
   }, [encryptedKey]);
