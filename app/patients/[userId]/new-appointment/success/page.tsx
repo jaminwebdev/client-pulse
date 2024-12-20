@@ -27,8 +27,7 @@ const RequestSuccess = async ({
             height={1000}
             width={1000}
             alt="logo"
-            className="h-10 w-fit"
-          />
+            className="h-10 w-fit" />
         </Link>
 
         <section className="flex flex-col items-center">
@@ -36,13 +35,12 @@ const RequestSuccess = async ({
             src="/assets/gifs/success.gif"
             height={300}
             width={280}
-            alt="success"
-          />
+            alt="success" />
           <h2 className="header mb-6 max-w-[600px] text-center">
             Your <span className="text-green-500">appointment request</span> has
             been submitted!
           </h2>
-          <p>We&apos;ll be in touch shortly.</p>
+          <p>We&apos;ll be in touch.</p>
         </section>
 
         <section className="flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row">
@@ -54,8 +52,7 @@ const RequestSuccess = async ({
               alt={doctor?.name || 'doctor'}
               width={100}
               height={100}
-              className="size-6"
-            />
+              className="size-6" />
             <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
           </div>
           <div className="flex gap-2">
@@ -63,8 +60,7 @@ const RequestSuccess = async ({
               src="/assets/icons/calendar.svg"
               height={24}
               width={24}
-              alt="calendar"
-            />
+              alt="calendar" />
             <p> {formatDateTime(appointment.schedule).dateTime}</p>
           </div>
         </section>

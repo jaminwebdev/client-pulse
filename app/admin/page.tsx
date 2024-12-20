@@ -18,18 +18,17 @@ const AdminPage = async () => {
             height={32}
             width={162}
             alt="logo"
-            className="h-8 w-fit"
-          />
+            className="h-8 w-fit" />
         </Link>
 
-        <p className="text-16-semibold">Admin Dashboard</p>
+        <p className="text-16-semibold">Admin</p>
       </header>
 
       <main className="flex flex-col items-center space-y-6 px-[5%] pb-12 xl:space-y-12 xl:px-12">
         <section className="w-full space-y-4">
           <h1 className="header">Welcome 👋</h1>
           <p className="text-dark-700">
-            Manage patient appointments
+            Manage appointments
           </p>
         </section>
 
@@ -37,18 +36,15 @@ const AdminPage = async () => {
           <StatCard
             count={appointments.scheduledCount}
             label="Scheduled appointments"
-            icon={"/assets/icons/appointments.svg"}
-          />
+            icon={"/assets/icons/appointments.svg"} />
           <StatCard
             count={appointments.pendingCount}
             label="Pending appointments"
-            icon={"/assets/icons/pending.svg"}
-          />
+            icon={"/assets/icons/pending.svg"} />
           <StatCard
             count={appointments.cancelledCount}
             label="Cancelled appointments"
-            icon={"/assets/icons/cancelled.svg"}
-          />
+            icon={"/assets/icons/cancelled.svg"} />
         </section>
 
         <DataTable columns={columns} data={appointments.documents} />

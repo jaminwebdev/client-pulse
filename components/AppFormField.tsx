@@ -57,8 +57,7 @@ const RenderField = ({ field, props }: { field: any; props: Props }) => {
               height={24}
               width={24}
               alt={props.iconAlt || "icon"}
-              className="ml-2"
-            />
+              className="ml-2" />
           )}
           <FormControl>
             <Input
@@ -76,8 +75,7 @@ const RenderField = ({ field, props }: { field: any; props: Props }) => {
             placeholder={props.placeholder}
             {...field}
             className="shad-textArea"
-            disabled={props.disabled}
-          />
+            disabled={props.disabled} />
         </FormControl>
       );
     case FormFields.PHONE_INPUT:
@@ -90,8 +88,7 @@ const RenderField = ({ field, props }: { field: any; props: Props }) => {
             withCountryCallingCode
             value={field.value as E164Number | undefined}
             onChange={field.onChange}
-            className="input-phone"
-          />
+            className="input-phone" />
         </FormControl>
       );
     case FormFields.CHECKBOX:
@@ -117,8 +114,7 @@ const RenderField = ({ field, props }: { field: any; props: Props }) => {
             height={24}
             width={24}
             alt="user"
-            className="ml-2"
-          />
+            className="ml-2" />
           <FormControl>
             <ReactDatePicker
               showTimeSelect={props.showTimeSelect ?? false}
@@ -126,8 +122,7 @@ const RenderField = ({ field, props }: { field: any; props: Props }) => {
               onChange={(date: Date) => field.onChange(date)}
               timeInputLabel="Time:"
               dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
-              wrapperClassName="date-picker"
-            />
+              wrapperClassName="date-picker" />
           </FormControl>
         </div>
       );

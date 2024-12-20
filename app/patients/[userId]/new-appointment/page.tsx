@@ -16,14 +16,12 @@ const Appointment = async ({ params }: SearchParamProps) => {
             height={1000}
             width={1000}
             alt="logo"
-            className="mb-12 h-10 w-fit"
-          />
+            className="mb-12 h-10 w-fit" />
 
           <AppointmentForm
             patientId={patient?.$id}
             userId={userId}
-            type="create"
-          />
+            type="create" />
 
           <p className="copyright mt-10 py-12">© 2024 ClientPulse</p>
         </div>
@@ -34,8 +32,7 @@ const Appointment = async ({ params }: SearchParamProps) => {
         height={1500}
         width={1500}
         alt="appointment"
-        className="side-img max-w-[390px] bg-bottom"
-      />
+        className="side-img max-w-[390px] bg-bottom" />
     </div>
   );
 };
