@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/input-otp";
 import { decryptKey, encryptKey } from "@/lib/utils";
 
-export const PasskeyModal = () => {
+export const PasskeyDialog = () => {
   const router = useRouter();
   const path = usePathname();
   const [open, setOpen] = useState(false);
@@ -29,14 +29,14 @@ export const PasskeyModal = () => {
 
   const encryptedKey =
     typeof window !== "undefined"
-      ? window.localStorage.getItem("accessKey")
+      ? window.localStorage.getItem("adminKey")
       : null;
 
   useEffect(() => {
-    const accessKey = encryptedKey && decryptKey(encryptedKey);
+    const adminKey = encryptedKey && decryptKey(encryptedKey);
 
     if (path)
-      if (accessKey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY!.toString()) {
+      if (adminKey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY!.toString()) {
         setOpen(false);
         router.push("/admin");
       } else {
@@ -57,7 +57,7 @@ export const PasskeyModal = () => {
     if (passkey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
       const encryptedKey = encryptKey(passkey);
 
-      localStorage.setItem("accessKey", encryptedKey);
+      localStorage.setItem("adminKey", encryptedKey);
 
       setOpen(false);
     } else {
@@ -77,8 +77,7 @@ export const PasskeyModal = () => {
               width={20}
               height={20}
               onClick={() => closeModal()}
-              className="cursor-pointer"
-            />
+              className="cursor-pointer" />
           </AlertDialogTitle>
           <AlertDialogDescription>
             Please enter your passkey
@@ -88,8 +87,7 @@ export const PasskeyModal = () => {
           <InputOTP
             maxLength={6}
             value={passkey}
-            onChange={(value) => setPasskey(value)}
-          >
+            onChange={(value) => setPasskey(value)} >
             <InputOTPGroup className="shad-otp">
               <InputOTPSlot className="shad-otp-slot" index={0} />
               <InputOTPSlot className="shad-otp-slot" index={1} />
@@ -109,8 +107,7 @@ export const PasskeyModal = () => {
         <AlertDialogFooter>
           <AlertDialogAction
             onClick={(e) => validatePasskey(e)}
-            className="shad-primary-btn w-full"
-          >
+            className="shad-primary-btn w-full" >
             Enter Passkey
           </AlertDialogAction>
         </AlertDialogFooter>
